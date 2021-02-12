@@ -61,19 +61,19 @@ class Candidate():
         return f"Candidate [{self.id}] : {self.gender} : {self.absolutes} / {self.categories}\n Matched: {self.matched} Partner: {self.partner}"
 
 if __name__ == '__main__':
-    n_males = 300
+    n_males = 1000
     n_females = n_males
-    rel_factor = 0.7
+    rel_factor = 0
     
-    n_absolute=4
-    categoricals=[2, 10, 4]
+    n_absolute=1
+    categoricals=[1]
     
     males = {}
     females = {}
     for i in range(n_males):
-        males[i] = Candidate(i, gender='M', rel_factor=rel_factor)
+        males[i] = Candidate(i, gender='M', rel_factor=rel_factor, n_absolute=n_absolute, categoricals=categoricals)
     for i in range(n_males, n_males + n_females):
-        females[i] = Candidate(i, gender='F', rel_factor=rel_factor)
+        females[i] = Candidate(i, gender='F', rel_factor=rel_factor, n_absolute=n_absolute, categoricals=categoricals)
     
     # Precompute male preference matrices
     for m in males:
